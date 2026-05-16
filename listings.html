@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Listings | Marcus Chen Real Estate Group | Chicago, IL</title>
+  <meta name="description" content="Browse all active Chicago listings from Marcus Chen Real Estate Group. Filter by neighborhood, price, beds, and property type." />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+</head>
+<body>
+
+  <div class="top-bar">
+    <div class="container">
+      <div class="top-bar-left">
+        <div class="top-bar-item"><i class="fas fa-map-marker-alt"></i><span>400 N Michigan Ave, Suite 1200, Chicago, IL 60601</span></div>
+        <div class="top-bar-item"><i class="fas fa-clock"></i><span>Mon–Fri 9AM–6PM | Showings 7 Days</span></div>
+      </div>
+      <div class="top-bar-right">
+        <div class="top-bar-item"><i class="fas fa-star" style="color:#fbbf24"></i><span>4.9/5 Stars — 1,800+ Reviews</span></div>
+        <div class="top-bar-item"><a href="tel:5554128830"><i class="fas fa-phone"></i> (555) 412-8830</a></div>
+      </div>
+    </div>
+  </div>
+
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="nav-logo">
+        <div class="logo-mark">MC</div>
+        <div><div class="logo-text-main">Marcus Chen</div><span class="logo-text-sub">Real Estate Group</span></div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="listings.html" class="active">Listings</a></li>
+        <li><a href="buyers.html">Buyers</a></li>
+        <li><a href="sellers.html">Sellers</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html" class="nav-cta"><i class="fas fa-phone"></i> Contact Marcus</a></li>
+      </ul>
+      <button class="mobile-menu-btn" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <div class="page-hero">
+    <div class="page-hero-bg" style="background-image:url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1920&q=80')"></div>
+    <div class="page-hero-overlay"></div>
+    <div class="container">
+      <div class="breadcrumb"><a href="index.html">Home</a><span class="sep">/</span><span class="current">Listings</span></div>
+      <div class="section-label">Available Properties</div>
+      <h1>Chicago Properties<br>For Sale</h1>
+      <p>94 active listings across Chicago's best neighborhoods. Updated daily. Schedule tours instantly.</p>
+    </div>
+  </div>
+
+  <!-- INSTAGRAM CAPTION GENERATOR -->
+  <section style="background:white;padding:3.5rem 0;">
+    <div class="container">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;">
+        <div>
+          <div class="section-label">AI Content Tool</div>
+          <h2 style="margin-bottom:0.75rem;">Instagram Caption<br>Generator</h2>
+          <p style="margin-bottom:1.5rem;">Enter a listing's details and our AI generates 3 engaging Instagram captions with hashtags — ready to post instantly. Marcus uses this on every new listing.</p>
+          <div class="form-group">
+            <label class="form-label" for="caption-address">Property Address</label>
+            <input class="form-input" id="caption-address" type="text" placeholder="e.g. 2847 N Lincoln Ave, Lincoln Park" value="2847 N Lincoln Ave, Lincoln Park" />
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="caption-price">List Price</label>
+              <input class="form-input" id="caption-price" type="text" placeholder="$549,000" value="$689,000" />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="caption-beds">Bedrooms</label>
+              <select class="form-select" id="caption-beds">
+                <option>1</option><option>2</option><option>3</option><option selected>4</option><option>5</option><option>6+</option>
+              </select>
+            </div>
+          </div>
+          <button class="btn btn-primary" id="generateCaptionBtn"><i class="fab fa-instagram"></i> Generate Caption</button>
+          <div id="caption-output" class="hidden" style="margin-top:1.25rem;">
+            <div style="background:var(--cream);border-radius:10px;padding:1.25rem;">
+              <p style="font-size:0.75rem;font-weight:700;color:var(--gray-600);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.75rem;">Generated Caption:</p>
+              <p id="generated-caption" style="font-size:0.85rem;line-height:1.7;white-space:pre-line;color:var(--dark);"></p>
+            </div>
+            <div class="caption-tags" style="margin-top:0.875rem;">
+              <span class="caption-tag">#ChicagoRealEstate</span>
+              <span class="caption-tag">#JustListed</span>
+              <span class="caption-tag">#LincolnPark</span>
+              <span class="caption-tag">#ChicagoHomes</span>
+              <span class="caption-tag">#MarcusChenRE</span>
+              <span class="caption-tag">#ChicagoAgent</span>
+              <span class="caption-tag">#HomesForSale</span>
+            </div>
+            <div class="caption-actions" style="margin-top:0.875rem;">
+              <button class="btn btn-primary btn-sm" id="generateCaptionBtn" onclick="document.getElementById('generateCaptionBtn').click()"><i class="fas fa-redo"></i> Regenerate</button>
+              <button class="btn btn-outline-navy btn-sm"><i class="fas fa-copy"></i> Copy</button>
+            </div>
+          </div>
+        </div>
+        <div class="caption-demo">
+          <div class="caption-header"><i class="fab fa-instagram"></i><span>@marcuschenrealestate</span></div>
+          <div class="caption-photo">
+            <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=500&q=80" alt="Listing preview" />
+          </div>
+          <div class="caption-body">
+            <p class="caption-text">✨ Just Listed! 2847 N Lincoln Ave<br><br>Your dream home is waiting. This stunning 4-bed beauty is priced at $689,000 and won't last long! DM me or tap link in bio to schedule your private showing TODAY.</p>
+            <div class="caption-tags">
+              <span class="caption-tag">#ChicagoRealEstate</span>
+              <span class="caption-tag">#JustListed</span>
+              <span class="caption-tag">#LincolnPark</span>
+              <span class="caption-tag">#ChicagoHomes</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LISTINGS PAGE -->
+  <section class="listings-page-section">
+    <div class="container">
+      <!-- FILTER -->
+      <div class="listings-filter">
+        <div class="filter-group">
+          <span class="filter-label">Neighborhood</span>
+          <select class="filter-select">
+            <option>All Neighborhoods</option>
+            <option>Lincoln Park</option>
+            <option>Wicker Park</option>
+            <option>Bucktown</option>
+            <option>Lakeview</option>
+            <option>Logan Square</option>
+            <option>South Loop</option>
+            <option>Gold Coast</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <span class="filter-label">Price Range</span>
+          <select class="filter-select">
+            <option>Any Price</option>
+            <option>Under $300K</option>
+            <option>$300K–$500K</option>
+            <option>$500K–$750K</option>
+            <option>$750K–$1M</option>
+            <option>$1M+</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <span class="filter-label">Bedrooms</span>
+          <select class="filter-select">
+            <option>Any</option>
+            <option>1+</option>
+            <option>2+</option>
+            <option>3+</option>
+            <option>4+</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <span class="filter-label">Property Type</span>
+          <select class="filter-select">
+            <option>All Types</option>
+            <option>Single Family</option>
+            <option>Condo</option>
+            <option>Townhome</option>
+            <option>Multi-Family</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <span class="filter-label">Status</span>
+          <select class="filter-select">
+            <option>Active</option>
+            <option>Pending</option>
+            <option>Sold (Last 90 Days)</option>
+          </select>
+        </div>
+        <button class="btn btn-primary"><i class="fas fa-search"></i> Filter</button>
+      </div>
+
+      <p class="listings-count">Showing <strong>94 properties</strong> in Chicago, IL</p>
+
+      <div class="listings-grid">
+        <div class="listing-card">
+          <div class="listing-photo">
+            <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=600&q=80" alt="Lincoln Park" loading="lazy" />
+            <span class="listing-badge badge-new">New</span>
+            <button class="listing-save"><i class="far fa-heart"></i></button>
+          </div>
+          <div class="listing-info">
+            <div class="listing-price">$689,000</div>
+            <div class="listing-address"><i class="fas fa-map-marker-alt"></i> 2847 N Lincoln Ave, Lincoln Park</div>
+            <div class="listing-specs">
+              <div class="spec"><i class="fas fa-bed"></i><strong>4</strong> beds</div>
+              <div class="spec"><i class="fas fa-bath"></i><strong>2.5</strong> baths</div>
+              <div class="spec"><i class="fas fa-ruler-combined"></i><strong>2,340</strong> sqft</div>
+            </div>
+            <div class="listing-actions">
+              <button class="btn btn-outline-navy btn-sm">View Details</button>
+              <button class="btn btn-primary btn-sm" onclick="openModal('showingModal')"><i class="fas fa-calendar-check"></i> Tour</button>
+            </div>
+          </div>
+        </div>
+        <div class="listing-card">
+          <div class="listing-photo">
+            <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=600&q=80" alt="Bucktown" loading="lazy" />
+            <span class="listing-badge badge-sale">For Sale</span>
+            <button class="listing-save"><i class="far fa-heart"></i></button>
+          </div>
+          <div class="listing-info">
+            <div class="listing-price">$875,000</div>
+            <div class="listing-address"><i class="fas fa-map-marker-alt"></i> 2104 W Armitage Ave, Bucktown</div>
+            <div class="listing-specs">
+              <div class="spec"><i class="fas fa-bed"></i><strong>5</strong> beds</div>
+              <div class="spec"><i class="fas fa-bath"></i><strong>3.5</strong> baths</div>
+              <div class="spec"><i class="fas fa-ruler-combined"></i><strong>3,120</strong> sqft</div>
+            </div>
+            <div class="listing-actions">
+              <button class="btn btn-outline-navy btn-sm">View Details</button>
+              <button class="btn btn-primary btn-sm" onclick="openModal('showingModal')"><i class="fas fa-calendar-check"></i> Tour</button>
+            </div>
+          </div>
+        </div>
+        <div class="listing-card">
+          <div class="listing-photo">
+            <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=600&q=80" alt="Wicker Park" loading="lazy" />
+            <span class="listing-badge badge-sale">For Sale</span>
+            <button class="listing-save"><i class="far fa-heart"></i></button>
+          </div>
+          <div class="listing-info">
+            <div class="listing-price">$449,000</div>
+            <div class="listing-address"><i class="fas fa-map-marker-alt"></i> 1548 W Division St, Wicker Park</div>
+            <div class="listing-specs">
+              <div class="spec"><i class="fas fa-bed"></i><strong>3</strong> beds</div>
+              <div class="spec"><i class="fas fa-bath"></i><strong>2</strong> baths</div>
+              <div class="spec"><i class="fas fa-ruler-combined"></i><strong>1,680</strong> sqft</div>
+            </div>
+            <div class="listing-actions">
+              <button class="btn btn-outline-navy btn-sm">View Details</button>
+              <button class="btn btn-primary btn-sm" onclick="openModal('showingModal')"><i class="fas fa-calendar-check"></i> Tour</button>
+            </div>
+          </div>
+        </div>
+        <div class="listing-card">
+          <div class="listing-photo">
+            <img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?auto=format&fit=crop&w=600&q=80" alt="Lakeview" loading="lazy" />
+            <span class="listing-badge badge-new">New</span>
+            <button class="listing-save"><i class="far fa-heart"></i></button>
+          </div>
+          <div class="listing-info">
+            <div class="listing-price">$542,000</div>
+            <div class="listing-address"><i class="fas fa-map-marker-alt"></i> 3418 N Broadway, Lakeview</div>
+            <div class="listing-specs">
+              <div class="spec"><i class="fas fa-bed"></i><strong>3</strong> beds</div>
+              <div class="spec"><i class="fas fa-bath"></i><strong>2</strong> baths</div>
+              <div class="spec"><i class="fas fa-ruler-combined"></i><strong>1,920</strong> sqft</div>
+            </div>
+            <div class="listing-actions">
+              <button class="btn btn-outline-navy btn-sm">View Details</button>
+              <button class="btn btn-primary btn-sm" onclick="openModal('showingModal')"><i class="fas fa-calendar-check"></i> Tour</button>
+            </div>
+          </div>
+        </div>
+        <div class="listing-card">
+          <div class="listing-photo">
+            <img src="https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?auto=format&fit=crop&w=600&q=80" alt="Gold Coast Luxury" loading="lazy" />
+            <span class="listing-badge badge-new">Luxury</span>
+            <button class="listing-save"><i class="far fa-heart"></i></button>
+          </div>
+          <div class="listing-info">
+            <div class="listing-price">$1,450,000</div>
+            <div class="listing-address"><i class="fas fa-map-marker-alt"></i> 104 E Bellevue Pl, Gold Coast</div>
+            <div class="listing-specs">
+              <div class="spec"><i class="fas fa-bed"></i><strong>5</strong> beds</div>
+              <div class="spec"><i class="fas fa-bath"></i><strong>4</strong> baths</div>
+              <div class="spec"><i class="fas fa-ruler-combined"></i><strong>4,200</strong> sqft</div>
+            </div>
+            <div class="listing-actions">
+              <button class="btn btn-outline-navy btn-sm">View Details</button>
+              <button class="btn btn-gold btn-sm" onclick="openModal('showingModal')"><i class="fas fa-calendar-check"></i> Private Tour</button>
+            </div>
+          </div>
+        </div>
+        <div class="listing-card">
+          <div class="listing-photo">
+            <img src="https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?auto=format&fit=crop&w=600&q=80" alt="Logan Square" loading="lazy" />
+            <span class="listing-badge badge-pending">Pending</span>
+            <button class="listing-save"><i class="far fa-heart"></i></button>
+          </div>
+          <div class="listing-info">
+            <div class="listing-price">$398,000</div>
+            <div class="listing-address"><i class="fas fa-map-marker-alt"></i> 2612 N Milwaukee Ave, Logan Square</div>
+            <div class="listing-specs">
+              <div class="spec"><i class="fas fa-bed"></i><strong>2</strong> beds</div>
+              <div class="spec"><i class="fas fa-bath"></i><strong>2</strong> baths</div>
+              <div class="spec"><i class="fas fa-ruler-combined"></i><strong>1,340</strong> sqft</div>
+            </div>
+            <div class="listing-actions">
+              <button class="btn btn-outline-navy btn-sm">View Details</button>
+              <button class="btn btn-primary btn-sm" disabled style="opacity:0.5;cursor:not-allowed;">Under Contract</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center" style="margin-top:3rem;">
+        <button class="btn btn-outline-navy btn-lg"><i class="fas fa-plus"></i> Load More Listings</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BAND -->
+  <section class="cta-band">
+    <div class="container">
+      <div>
+        <h2>Don't See What You're Looking For?</h2>
+        <p>Tell Marcus exactly what you want and he'll find off-market properties that match your criteria.</p>
+      </div>
+      <a href="contact.html" class="btn btn-gold btn-lg"><i class="fas fa-search"></i> Custom Property Search</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo"><div class="logo-mark">MC</div><div><div class="logo-text-main">Marcus Chen</div><span class="logo-text-sub">Real Estate Group</span></div></a>
+          <p>Chicago's trusted real estate expert since 2006. 600+ homes sold. $45M+ annual sales.</p>
+          <div class="footer-social"><a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a><a href="#" class="social-link"><i class="fab fa-instagram"></i></a><a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a></div>
+        </div>
+        <div class="footer-col"><h4>Quick Links</h4><ul class="footer-links"><li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li><li><a href="listings.html"><i class="fas fa-chevron-right"></i> All Listings</a></li><li><a href="buyers.html"><i class="fas fa-chevron-right"></i> Buyers</a></li><li><a href="sellers.html"><i class="fas fa-chevron-right"></i> Sellers</a></li><li><a href="about.html"><i class="fas fa-chevron-right"></i> About Marcus</a></li><li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact</a></li></ul></div>
+        <div class="footer-col"><h4>Neighborhoods</h4><ul class="footer-links"><li><a href="listings.html"><i class="fas fa-chevron-right"></i> Lincoln Park</a></li><li><a href="listings.html"><i class="fas fa-chevron-right"></i> Wicker Park</a></li><li><a href="listings.html"><i class="fas fa-chevron-right"></i> Bucktown</a></li><li><a href="listings.html"><i class="fas fa-chevron-right"></i> Lakeview</a></li><li><a href="listings.html"><i class="fas fa-chevron-right"></i> Gold Coast</a></li></ul></div>
+        <div class="footer-col"><h4>Contact</h4><div class="footer-contact-item"><i class="fas fa-phone"></i><a href="tel:5554128830">(555) 412-8830</a></div><div class="footer-contact-item"><i class="fas fa-envelope"></i><a href="mailto:marcus@chengrouprealty.com">marcus@chengrouprealty.com</a></div><div class="footer-cta-box"><p>Free home valuation</p><a href="sellers.html"><i class="fas fa-home"></i> Get My Home's Value</a></div></div>
+      </div>
+      <div class="footer-bottom"><span>© 2024 Marcus Chen Real Estate Group. All rights reserved. <em style="font-size:0.72rem;opacity:0.4">— Demo Site</em></span><div class="footer-bottom-links"><a href="#">Privacy Policy</a><a href="#">Fair Housing</a></div></div>
+    </div>
+  </footer>
+
+  <!-- SHOWING MODAL -->
+  <div class="modal-overlay" id="showingModal">
+    <div class="modal-card">
+      <div class="modal-icon success"><i class="fas fa-calendar-check"></i></div>
+      <h3>Schedule a Showing</h3>
+      <p>Choose your preferred date and time. Marcus's team will confirm within 30 minutes.</p>
+      <form id="showingForm">
+        <div class="form-group" style="text-align:left;">
+          <label class="form-label" for="showing-address">Property Address</label>
+          <input class="form-input" id="showing-address" type="text" placeholder="Address or MLS number" required />
+        </div>
+        <div class="form-row">
+          <div class="form-group" style="text-align:left;">
+            <label class="form-label" for="showing-date">Preferred Date</label>
+            <input class="form-input" id="showing-date" type="date" required />
+          </div>
+          <div class="form-group" style="text-align:left;">
+            <label class="form-label" for="showing-time">Preferred Time</label>
+            <select class="form-select" id="showing-time" required>
+              <option>9:00 AM</option><option>10:00 AM</option><option>11:00 AM</option><option>12:00 PM</option><option>1:00 PM</option><option>2:00 PM</option><option>3:00 PM</option><option>4:00 PM</option><option>5:00 PM</option><option>6:00 PM</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group" style="text-align:left;">
+          <label class="form-label" for="showing-name">Your Name &amp; Phone</label>
+          <input class="form-input" id="showing-name" type="text" placeholder="Name — (555) 000-0000" required />
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;"><i class="fas fa-calendar-check"></i> Request Showing</button>
+      </form>
+      <button class="btn btn-outline-navy" style="width:100%;justify-content:center;margin-top:0.75rem;" onclick="closeModal('showingModal')">Cancel</button>
+    </div>
+  </div>
+
+  <!-- SHOWING CONFIRMED MODAL -->
+  <div class="modal-overlay" id="showingConfirmedModal">
+    <div class="modal-card">
+      <div class="modal-icon success"><i class="fas fa-check"></i></div>
+      <h3>Showing Requested!</h3>
+      <p>Marcus's team will confirm your showing within 30 minutes and text you directions and parking info.</p>
+      <div class="modal-box"><h4>Your Showing</h4>
+        <div class="conf-row"><i class="fas fa-home"></i><span id="conf-showing-addr">Property</span></div>
+        <div class="conf-row"><i class="fas fa-calendar"></i><span id="conf-showing-date">Date</span></div>
+        <div class="conf-row"><i class="fas fa-clock"></i><span id="conf-showing-time">Time</span></div>
+      </div>
+      <button class="btn btn-primary" style="width:100%;justify-content:center;" onclick="closeModal('showingConfirmedModal')">Great, See You There!</button>
+    </div>
+  </div>
+
+  <button class="chatbot-toggle" aria-label="Talk to Alex AI"><i class="fas fa-comment-dots"></i></button>
+  <div class="chatbot-window">
+    <div class="chatbot-header">
+      <div class="chatbot-avatar">MC</div>
+      <div class="chatbot-header-info"><h4>Alex — AI Lead Qualifier</h4><p><span class="online-dot"></span>Marcus Chen Real Estate</p></div>
+      <div class="lead-score-indicator">New Lead</div>
+      <button class="chatbot-close"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="chatbot-messages"></div>
+    <div class="chatbot-quick-replies"></div>
+    <div class="chatbot-input-area">
+      <input class="chatbot-input" type="text" placeholder="Ask about listings..." />
+      <button class="chatbot-send"><i class="fas fa-paper-plane"></i></button>
+    </div>
+  </div>
+
+  <style>.hidden { display: none !important; }</style>
+  <script src="js/main.js"></script>
+</body>
+</html>
