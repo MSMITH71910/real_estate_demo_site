@@ -371,7 +371,13 @@ document.addEventListener('DOMContentLoaded', () => {
       if (addrEl) addrEl.textContent = addr;
       if (dateEl) dateEl.textContent = date;
       if (timeEl) timeEl.textContent = time;
-      openModal('showingModal');
+      const parentModal = showingForm.closest('.modal-overlay');
+      if (parentModal) {
+        parentModal.classList.remove('open');
+        openModal('showingConfirmedModal');
+      } else {
+        openModal('showingModal');
+      }
     });
   }
 
