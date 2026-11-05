@@ -267,34 +267,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 3000);
   }
 
-  // ===== LEAD FORM → 7-DAY FOLLOW-UP =====
-  const leadForm = document.getElementById('leadForm');
-  if (leadForm) {
-    leadForm.addEventListener('submit', e => {
-      e.preventDefault();
-      const name = document.getElementById('lead-name')?.value || 'Friend';
-      const intent = document.getElementById('lead-intent')?.value || 'Buyer';
-      document.getElementById('conf-lead-name').textContent = name;
-      document.getElementById('conf-lead-intent').textContent = intent;
-      openModal('leadModal');
-    });
-  }
-
-  // ===== SHOWING SCHEDULER =====
-  const showingForm = document.getElementById('showingForm');
-  if (showingForm) {
-    showingForm.addEventListener('submit', e => {
-      e.preventDefault();
-      const addr = document.getElementById('showing-address')?.value || 'Selected Property';
-      const date = document.getElementById('showing-date')?.value || '';
-      const time = document.getElementById('showing-time')?.value || '';
-      document.getElementById('conf-showing-addr').textContent = addr;
-      document.getElementById('conf-showing-date').textContent = date ? new Date(date+'T12:00').toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric'}) : 'Selected date';
-      document.getElementById('conf-showing-time').textContent = time;
-      openModal('showingModal');
-    });
-  }
-
   // ===== CONTACT FORM =====
   const contactForm = document.getElementById('contactForm');
   if (contactForm) {
